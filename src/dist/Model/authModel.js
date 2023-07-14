@@ -27,7 +27,8 @@ const mongoose_1 = __importStar(require("mongoose"));
 const Authmodel = new mongoose_1.Schema({
     userName: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     email: {
         type: String,

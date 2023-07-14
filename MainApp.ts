@@ -1,10 +1,13 @@
 import express,{Application,Request,Response} from "express"
 import cors from "cors"
-
+import morgan from "morgan"
+import auth from "./router/authRouter"
 
 export const Mainapp = (app:Application) => {
     app.use(cors())
-    .use(express.json());
+    .use(express.json())
+    .use(morgan("dev"))
+    .use("/api/auth", auth)
 
    app.get("/", (req:Request, res:Response)=>{
 try {
