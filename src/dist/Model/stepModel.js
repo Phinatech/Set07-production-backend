@@ -39,5 +39,9 @@ const Stepmodel = new mongoose_1.Schema({
     assignedAvatar: {
         type: String,
     },
+    task: {
+        type: mongoose_1.default.Types.ObjectId,
+        ref: "tasks"
+    }
 }, { timestamps: true });
-exports.default = mongoose_1.default.model("Task", Stepmodel);
+exports.default = mongoose_1.default.model("steps", Stepmodel);

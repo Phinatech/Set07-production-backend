@@ -5,6 +5,7 @@ export interface Itask {
   name: string;
   priority: string;
   avatar: string;
+  steps?: {}[];
 }
 
 interface itaskData extends Itask, mongoose.Document {}
@@ -27,8 +28,14 @@ const Taskmodel = new Schema(
     avatar: {
       type: String,
     },
+    steps:[
+      {
+        type:mongoose.Types.ObjectId,
+        ref:"steps"
+      }
+    ]
   },
   { timestamps: true }
 );
 
-export default mongoose.model<itaskData>("Task", Taskmodel);
+export default mongoose.model<itaskData>("tasks", Taskmodel);

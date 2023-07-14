@@ -39,5 +39,11 @@ const Taskmodel = new mongoose_1.Schema({
     avatar: {
         type: String,
     },
+    steps: [
+        {
+            type: mongoose_1.default.Types.ObjectId,
+            ref: "steps"
+        }
+    ]
 }, { timestamps: true });
-exports.default = mongoose_1.default.model("Task", Taskmodel);
+exports.default = mongoose_1.default.model("tasks", Taskmodel);

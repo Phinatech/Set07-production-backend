@@ -5,6 +5,7 @@ export interface Istep {
   assignedName: string;
   assignedPriority: string;
   assignedAvatar: string;
+  task:{};
 }
 
 interface istepData extends Istep, mongoose.Document {}
@@ -25,9 +26,14 @@ const Stepmodel = new Schema<Istep>(
     assignedAvatar: {
       type: String,
     },
+
+    task:{
+      type: mongoose.Types.ObjectId,
+      ref:"tasks"
+    }
     
   },
   { timestamps: true }
 );
 
-export default mongoose.model<istepData>("Task", Stepmodel);
+export default mongoose.model<istepData>("steps", Stepmodel);
